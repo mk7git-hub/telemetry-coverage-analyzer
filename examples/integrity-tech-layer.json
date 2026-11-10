@@ -1,0 +1,92 @@
+{
+  "name": "AA26-281A Integrity Tech",
+  "versions": {
+    "layer": "4.5",
+    "navigator": "5.1.0"
+  },
+  "domain": "enterprise-attack",
+  "description": "CISA AA26-281A techniques",
+  "techniques": [
+    {
+      "techniqueID": "T1595.002",
+      "color": "#e8743b",
+      "comment": "Scanners and MicroScan"
+    },
+    {
+      "techniqueID": "T1189",
+      "color": "#e8743b",
+      "comment": "XSS credential harvest"
+    },
+    {
+      "techniqueID": "T1059.001",
+      "color": "#e8743b",
+      "comment": "PowerShell downloads SoftEther"
+    },
+    {
+      "techniqueID": "T1059.004",
+      "color": "#e8743b",
+      "comment": "office-cli via Bash"
+    },
+    {
+      "techniqueID": "T1059.006",
+      "color": "#e8743b",
+      "comment": "Python exploit tools"
+    },
+    {
+      "techniqueID": "T1059.007",
+      "color": "#e8743b",
+      "comment": "XSS JavaScript"
+    },
+    {
+      "techniqueID": "T1133",
+      "color": "#e8743b",
+      "comment": "SoftEther VPN persistence"
+    },
+    {
+      "techniqueID": "T1036.003",
+      "color": "#e8743b",
+      "comment": "DiagTrack/conhost/dllhost names"
+    },
+    {
+      "techniqueID": "T1003.006",
+      "color": "#e8743b",
+      "comment": "DC.exe DCSync"
+    },
+    {
+      "techniqueID": "T1110.001",
+      "color": "#e8743b",
+      "comment": "EBurst guessing"
+    },
+    {
+      "techniqueID": "T1110.003",
+      "color": "#e8743b",
+      "comment": "EBurst spraying"
+    },
+    {
+      "techniqueID": "T1114.002",
+      "color": "#e8743b",
+      "comment": "EWS API mail theft"
+    },
+    {
+      "techniqueID": "T1074.001",
+      "color": "#e8743b",
+      "comment": "Writable dir staging"
+    },
+    {
+      "techniqueID": "T1560.003",
+      "color": "#e8743b",
+      "comment": "Custom compress + RC4/AES"
+    },
+    {
+      "techniqueID": "T1020",
+      "color": "#e8743b",
+      "comment": "Automated upload"
+    }
+  ],
+  "legendItems": [
+    {
+      "label": "Observed in advisory",
+      "color": "#e8743b"
+    }
+  ]
+}

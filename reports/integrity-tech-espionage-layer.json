@@ -1,0 +1,103 @@
+{
+  "name": "Coverage: Integrity Tech espionage",
+  "versions": {
+    "layer": "4.5",
+    "navigator": "5.1.0"
+  },
+  "domain": "enterprise-attack",
+  "techniques": [
+    {
+      "techniqueID": "T1003.006",
+      "color": "#c62828",
+      "comment": "none"
+    },
+    {
+      "techniqueID": "T1020",
+      "color": "#2e7d32",
+      "comment": "full"
+    },
+    {
+      "techniqueID": "T1036.003",
+      "color": "#f9a825",
+      "comment": "partial"
+    },
+    {
+      "techniqueID": "T1059.001",
+      "color": "#f9a825",
+      "comment": "partial"
+    },
+    {
+      "techniqueID": "T1059.004",
+      "color": "#9e9e9e",
+      "comment": "no-guidance"
+    },
+    {
+      "techniqueID": "T1059.006",
+      "color": "#f9a825",
+      "comment": "partial"
+    },
+    {
+      "techniqueID": "T1059.007",
+      "color": "#f9a825",
+      "comment": "partial"
+    },
+    {
+      "techniqueID": "T1074.001",
+      "color": "#f9a825",
+      "comment": "partial"
+    },
+    {
+      "techniqueID": "T1110.001",
+      "color": "#2e7d32",
+      "comment": "full"
+    },
+    {
+      "techniqueID": "T1110.003",
+      "color": "#2e7d32",
+      "comment": "full"
+    },
+    {
+      "techniqueID": "T1114.002",
+      "color": "#f9a825",
+      "comment": "partial"
+    },
+    {
+      "techniqueID": "T1133",
+      "color": "#f9a825",
+      "comment": "partial"
+    },
+    {
+      "techniqueID": "T1189",
+      "color": "#f9a825",
+      "comment": "partial"
+    },
+    {
+      "techniqueID": "T1560.003",
+      "color": "#f9a825",
+      "comment": "partial"
+    },
+    {
+      "techniqueID": "T1595.002",
+      "color": "#9e9e9e",
+      "comment": "no-guidance"
+    }
+  ],
+  "legendItems": [
+    {
+      "label": "full",
+      "color": "#2e7d32"
+    },
+    {
+      "label": "partial",
+      "color": "#f9a825"
+    },
+    {
+      "label": "none",
+      "color": "#c62828"
+    },
+    {
+      "label": "no-guidance",
+      "color": "#9e9e9e"
+    }
+  ]
+}

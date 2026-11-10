@@ -1,0 +1,45 @@
+# Example log-source inventory for a mid-size defense contractor (Windows + AWS + M365 + Okta).
+# Volumes and prices are illustrative planning assumptions, not a real customer's numbers:
+# replace them with your SIEM's ingest report and contract rate.
+platforms: [Windows, IaaS, Office Suite, Identity Provider, SaaS]
+sources:
+  - name: WinEventLog:Security
+    channels: ["4624", "4625", "4648", "4672", "4688", "4697", "4698", "4720", "4768", "4769"]   # 4662 and 5136 not audited
+    daily_gb: 40
+    cost_per_gb: 2.5
+    normalized: true
+  - name: WinEventLog:Sysmon
+    channels: ["1", "3", "11", "13"]                     # process, network, file create, registry value; no 7, 8, 10, 22
+    daily_gb: 60
+    cost_per_gb: 2.5
+    normalized: true
+  - name: WinEventLog:PowerShell
+    channels: ["4104"]
+    daily_gb: 6
+    cost_per_gb: 2.5
+    normalized: false
+  - name: AWS:CloudTrail
+    channels: "*"
+    daily_gb: 8
+    cost_per_gb: 2.5
+    normalized: true
+  - name: m365:unified
+    channels: "*"
+    daily_gb: 5
+    cost_per_gb: 2.5
+    normalized: false
+  - name: azure:signinlogs
+    channels: "*"
+    daily_gb: 2
+    cost_per_gb: 2.5
+    normalized: true
+  - name: saas:okta
+    channels: "*"
+    daily_gb: 1
+    cost_per_gb: 2.5
+    normalized: true
+  - name: NSM:Firewall
+    channels: "*"
+    daily_gb: 120
+    cost_per_gb: 2.5
+    normalized: false

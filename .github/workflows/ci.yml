@@ -1,0 +1,34 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 6 * * 1"   # weekly: re-run against the latest ATT&CK release
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: ruff check tca tests
+      - name: unit tests (synthetic ATT&CK fixture)
+        run: pytest -q
+      - name: coverage reports against the live ATT&CK release
+        run: |
+          python -m tca.cli --inventory examples/inventory.yml --layer examples/safepay-layer.json --title "SafePay ransomware"
+          python -m tca.cli --inventory examples/inventory.yml --layer examples/integrity-tech-layer.json --title "Integrity Tech espionage"
+          python -m tca.cli --inventory examples/inventory.yml --group "Volt Typhoon" --title "Volt Typhoon"
+          cat reports/safepay-ransomware.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coverage-reports
+          path: reports/

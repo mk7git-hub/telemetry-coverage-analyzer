@@ -1,0 +1,143 @@
+{
+ "objects": [
+  {
+   "type": "x-mitre-data-component",
+   "id": "dc--ad",
+   "name": "Active Directory Object Access"
+  },
+  {
+   "type": "x-mitre-data-component",
+   "id": "dc--proc",
+   "name": "Process Creation"
+  },
+  {
+   "type": "attack-pattern",
+   "id": "ap--dcsync",
+   "name": "DCSync",
+   "x_mitre_platforms": [
+    "Windows"
+   ],
+   "kill_chain_phases": [
+    {
+     "phase_name": "credential-access"
+    }
+   ],
+   "external_references": [
+    {
+     "source_name": "mitre-attack",
+     "external_id": "T1003.006"
+    }
+   ]
+  },
+  {
+   "type": "attack-pattern",
+   "id": "ap--vss",
+   "name": "Inhibit System Recovery",
+   "x_mitre_platforms": [
+    "Windows"
+   ],
+   "kill_chain_phases": [
+    {
+     "phase_name": "impact"
+    }
+   ],
+   "external_references": [
+    {
+     "source_name": "mitre-attack",
+     "external_id": "T1490"
+    }
+   ]
+  },
+  {
+   "type": "attack-pattern",
+   "id": "ap--old",
+   "name": "Old",
+   "revoked": true,
+   "external_references": [
+    {
+     "source_name": "mitre-attack",
+     "external_id": "T9999"
+    }
+   ]
+  },
+  {
+   "type": "x-mitre-analytic",
+   "id": "an--dcsync",
+   "name": "AN-DCSync",
+   "x_mitre_platforms": [
+    "Windows"
+   ],
+   "x_mitre_log_source_references": [
+    {
+     "name": "WinEventLog:Security",
+     "channel": "EventCode=4662",
+     "x_mitre_data_component_ref": "dc--ad"
+    }
+   ]
+  },
+  {
+   "type": "x-mitre-analytic",
+   "id": "an--vss",
+   "name": "AN-VSS",
+   "x_mitre_platforms": [
+    "Windows"
+   ],
+   "x_mitre_log_source_references": [
+    {
+     "name": "WinEventLog:Sysmon",
+     "channel": "EventCode=1",
+     "x_mitre_data_component_ref": "dc--proc"
+    },
+    {
+     "name": "WinEventLog:Security",
+     "channel": "EventCode=4688",
+     "x_mitre_data_component_ref": "dc--proc"
+    }
+   ]
+  },
+  {
+   "type": "x-mitre-detection-strategy",
+   "id": "ds--1",
+   "x_mitre_analytic_refs": [
+    "an--dcsync"
+   ]
+  },
+  {
+   "type": "x-mitre-detection-strategy",
+   "id": "ds--2",
+   "x_mitre_analytic_refs": [
+    "an--vss"
+   ]
+  },
+  {
+   "type": "relationship",
+   "id": "r1",
+   "relationship_type": "detects",
+   "source_ref": "ds--1",
+   "target_ref": "ap--dcsync"
+  },
+  {
+   "type": "relationship",
+   "id": "r2",
+   "relationship_type": "detects",
+   "source_ref": "ds--2",
+   "target_ref": "ap--vss"
+  },
+  {
+   "type": "intrusion-set",
+   "id": "is--x",
+   "name": "Example Group",
+   "aliases": [
+    "Example Group",
+    "EG"
+   ]
+  },
+  {
+   "type": "relationship",
+   "id": "r3",
+   "relationship_type": "uses",
+   "source_ref": "is--x",
+   "target_ref": "ap--vss"
+  }
+ ]
+}
